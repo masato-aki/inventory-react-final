@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosClient from "../api/axiosCLient";
+import axiosClient from "../api/axiosClient";
 // import type { ItemOrg } from "../types/inventory";
 import { FunnySqlCharacter } from "./FunnySqlCharacter";
 
