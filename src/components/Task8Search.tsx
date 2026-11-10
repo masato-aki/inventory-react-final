@@ -25,11 +25,6 @@ export const Task8Search: React.FC = () => {
     }
   };
 
-  //   // 初期表示で自動検索
-  //   useEffect(() => {
-  //     handleSearch();
-  //   }, []);
-
   // 表示用動的SQL文
   const currentSql = `SELECT mp.organization_code AS 組織コード,\n       msib.segment1 AS 品目コード,\n       CASE\n         WHEN flv.meaning = '外注加工品目' THEN CONCAT(flv.meaning, '_', msib.segment1)\n         ELSE flv.meaning\n       END AS 品目タイプ\nFROM mtl_system_items_b msib\nJOIN mtl_parameters mp ON mp.organization_id = msib.organization_id\nJOIN fnd_lookup_values flv ON flv.lookup_code = msib.item_type\n  AND flv.lookup_type = 'ITEM_TYPE'\n  AND flv.meaning IS NOT NULL\nWHERE msib.organization_id = ${orgId || "42"}\n  AND msib.inventory_item_id IN (${itemIds || "10003, 10013"})\nORDER BY msib.inventory_item_id;`;
 
@@ -43,7 +38,7 @@ export const Task8Search: React.FC = () => {
           width: "100%",
         }}
       >
-        {/* 左側：出題内容（画像をメインにスッキリ表示） */}
+        {/* 左側：出題内容（画像をスッキリ表示） */}
         <div
           style={{
             border: "2px solid #cbd5e1",

@@ -25,7 +25,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       style={{
-        width: "280px", // 横幅を 220px -> 280px に太く！
+        width: "280px",
         backgroundColor: "#1b2533",
         color: "#ffffff",
         minHeight: "100vh",
@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 style={{
                   width: "100%",
                   textAlign: "left",
-                  padding: "14px 20px", // ボタンの上下余白を大きく
+                  padding: "14px 20px",
                   backgroundColor: isActive ? "#1d4ed8" : "transparent",
                   color: isActive ? "#ffffff" : "#cbd5e1",
                   border: "none",

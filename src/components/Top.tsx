@@ -19,7 +19,7 @@ export const Top: React.FC = () => {
         </h1>
       </div>
 
-      {/* 開発背景と目的・工夫点（統合枠） */}
+      {/* 開発背景と目的・工夫点 */}
       <div
         style={{
           backgroundColor: "#ffffff",

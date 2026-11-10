@@ -25,7 +25,7 @@ export const Task7Search: React.FC = () => {
     }
   };
 
-  // 表示用動的SQL文（A5M2対応・プロ仕様インデント整形済み）
+  // 表示用動的SQL文
   const currentSql = `SELECT
   p.organization_code,
   i.segment1,
@@ -389,7 +389,7 @@ WHERE
             </div>
           </div>
 
-          {/* 🍖 SPACEY MUNCHER キャラクターコンポーネント */}
+          {/* SPACEY MUNCHER キャラクターコンポーネント */}
           <FunnySqlCharacter sqlText={currentSql} />
         </div>
       </div>

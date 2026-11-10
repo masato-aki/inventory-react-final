@@ -24,7 +24,7 @@ export const Task6Search: React.FC = () => {
     }
   };
 
-  // 表示用動的SQL文（プロ仕様インデント整形済み）
+  // 表示用動的SQL文
   const currentSql = `SELECT
   p.organization_code AS 組織コード,
   o.name AS 組織名,

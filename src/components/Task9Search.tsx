@@ -21,7 +21,7 @@ export const Task9Search: React.FC = () => {
     }
   };
 
-  // 表示用固定SQL文（NOT EXISTSを使用した課題仕様通りのクエリ）
+  // 表示用固定SQL文（NOT EXISTSを使用した課題通りのSQL）
   const currentSql = `SELECT mp.organization_code AS 組織コード,\n       COUNT(*) AS 工順なし半組立品件数\nFROM mtl_system_items_b msib\nJOIN mtl_parameters mp ON mp.organization_id = msib.organization_id\nJOIN fnd_lookup_values flv ON flv.lookup_code = msib.item_type\n  AND flv.lookup_type = 'ITEM_TYPE'\n  AND flv.meaning = '半組立品'\nWHERE msib.organization_id <> 0\n  AND NOT EXISTS (\n    SELECT 1\n    FROM bom_operational_routings bor\n    WHERE bor.organization_id = msib.organization_id\n      AND bor.assembly_item_id = msib.inventory_item_id\n  )\nGROUP BY mp.organization_code\nORDER BY mp.organization_code;`;
 
   return (
@@ -235,7 +235,7 @@ export const Task9Search: React.FC = () => {
             </div>
           </div>
 
-          {/* 🍖 SPACEY MUNCHER キャラクターコンポーネント */}
+          {/* SPACEY MUNCHER キャラクターコンポーネント */}
           <FunnySqlCharacter sqlText={currentSql} />
         </div>
       </div>

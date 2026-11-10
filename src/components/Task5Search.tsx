@@ -25,7 +25,7 @@ export const Task5Search: React.FC = () => {
     }
   };
 
-  // 表示用動的SQL文（先輩の答えに合わせたGROUP BY・SUM形式＆綺麗なインデント）
+  // 表示用動的SQL文
   const currentSql = `SELECT
   mp.organization_code AS 組織コード,
   msib.segment1 AS 品目コード,

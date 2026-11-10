@@ -251,7 +251,7 @@ export const Task10Search: React.FC = () => {
             </div>
           </div>
 
-          {/* 🍖 SPACEY MUNCHER キャラクターコンポーネント */}
+          {/* SPACEY MUNCHER キャラクターコンポーネント */}
           <FunnySqlCharacter sqlText={currentSql} />
         </div>
       </div>

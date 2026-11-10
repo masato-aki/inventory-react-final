@@ -1,22 +1,34 @@
 import React, { useState } from "react";
+import "./App.css";
+
+// 共通レイアウトコンポーネント
 import { Sidebar } from "./components/Sidebar";
 import { Top } from "./components/Top";
-import { Task1Search } from "./components/Task1Search";
-import { Task2Search } from "./components/Task2Search"; // 👈 🟩 課題2コンポーネントを追加！
-import { Task3Search } from "./components/Task3Search";
-import { Task4Search } from "./components/Task4Search"; // 👈 追加
-import { Task5Search } from "./components/Task5Search";
 
-import "./App.css";
+// 各課題（Task1〜Task10）の表示コンポーネント
+import { Task1Search } from "./components/Task1Search";
+import { Task2Search } from "./components/Task2Search";
+import { Task3Search } from "./components/Task3Search";
+import { Task4Search } from "./components/Task4Search";
+import { Task5Search } from "./components/Task5Search";
 import { Task6Search } from "./components/Task6Search";
 import { Task7Search } from "./components/Task7Search";
 import { Task8Search } from "./components/Task8Search";
 import { Task9Search } from "./components/Task9Search";
 import { Task10Search } from "./components/Task10Search";
 
+/**
+ * アプリケーションのルートコンポーネント
+ * - サイドバーとメインコンテンツの全体レイアウトを管理
+ * - 選択中メニューに応じた動的コンポーネントルーティングを提供
+ */
 function App() {
+  // 現在選択されているメニューキー（初期表示はトップ画面）
   const [currentMenu, setCurrentMenu] = useState<string>("top");
 
+  /**
+   * 選択中メニューキーに応じて描画対象のコンポーネントを判定
+   */
   const renderContent = () => {
     switch (currentMenu) {
       case "top":
@@ -24,7 +36,7 @@ function App() {
       case "task1":
         return <Task1Search />;
       case "task2":
-        return <Task2Search />; // 👈 🟩 <Top /> から <Task2Search /> へ差し替え！
+        return <Task2Search />;
       case "task3":
         return <Task3Search />;
       case "task4":
@@ -52,18 +64,18 @@ function App() {
         display: "flex",
         minHeight: "100vh",
         backgroundColor: "#f1f5f9",
-        width: "100%", // 縦スクロールバーを考慮した正確な幅
-        overflowX: "hidden", // 横スクロールバーの発生を抑止
+        width: "100%",
+        overflowX: "hidden",
       }}
     >
-      {/* 左側：サイドバー */}
+      {/* 画面左：ナビゲーションサイドバー */}
       <Sidebar currentMenu={currentMenu} onSelectMenu={setCurrentMenu} />
 
-      {/* 右側：メインコンテンツ */}
+      {/* 画面右：業務コンテンツ描画エリア */}
       <main
         style={{
-          flex: 1, // 残りの幅を自動で埋める
-          minWidth: 0, // 子要素による幅崩れを防止
+          flex: 1,
+          minWidth: 0,
           padding: "20px",
           boxSizing: "border-box",
         }}

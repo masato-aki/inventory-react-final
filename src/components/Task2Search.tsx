@@ -30,14 +30,15 @@ export const Task2Search: React.FC = () => {
   const currentSql = `SELECT
   p.organization_code,
   i.segment1
-FROM
+  FROM
   mtl_system_items_b i
-JOIN
+  JOIN
   mtl_parameters p
-    ON i.organization_id = p.organization_id
-WHERE
+  ON i.organization_id = p.organization_id
+  WHERE
   i.organization_id = ${orgId || "43"}
   AND i.inventory_item_id = ${itemId || "10004"};`.trim();
+
   return (
     <div style={{ width: "100%", boxSizing: "border-box" }}>
       <div

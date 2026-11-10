@@ -25,7 +25,7 @@ export const Task3Search: React.FC = () => {
     }
   };
 
-  // 表示用動的SQL文（インデント整形 ＆ ソート順を出題サンプルの答えと100%統一）
+  // 表示用動的SQL文
   const formattedIds = itemIds
     ? itemIds
         .split(",")
@@ -38,17 +38,17 @@ export const Task3Search: React.FC = () => {
   mp.organization_code AS 組織コード,
   ou.name AS 組織名,
   msi.segment1 AS 品目コード
-FROM
+  FROM
   mtl_parameters mp
-JOIN
+  JOIN
   mtl_system_items_b msi
-    ON mp.organization_id = msi.organization_id
-JOIN
+  ON mp.organization_id = msi.organization_id
+  JOIN
   hr_all_organization_units ou
-    ON mp.organization_id = ou.organization_id
-WHERE
+  ON mp.organization_id = ou.organization_id
+  WHERE
   msi.inventory_item_id IN (${formattedIds})
-ORDER BY
+  ORDER BY
   mp.organization_code DESC,
   msi.segment1 ASC;`.trim();
 
